@@ -25,9 +25,7 @@ echo 'chat_id=$(curl --silent --show-error ' "$json_file" ' | jq --raw-output .c
 echo 'whitelist=$(curl --silent --show-error ' "$json_file" ' | jq --raw-output '"'"'.config.whitelist | join(''"'' ''"'')'"'"');' >> /etc/profile.d/login-notify.sh
 
 echo '# if ip address with mask make list of ip' >> /etc/profile.d/login-notify.sh
-echo 'for i in "${whitelist[@]}"; do' >> /etc/profile.d/login-notify.sh
-echo '  ip_list=$(nmap -sL $i | awk '"'"'/Nmap scan report/{print $NF}'"'"');' >> /etc/profile.d/login-notify.sh
-echo 'done' >> /etc/profile.d/login-notify.sh
+echo '  ip_list=$(nmap -sL $whitelist | awk '"'"'/Nmap scan report/{print $NF}'"'"');' >> /etc/profile.d/login-notify.sh
 
 echo '# set variables for message' >> /etc/profile.d/login-notify.sh
 echo 'time=$(date +"%Y-%m-%d %H:%M");' >> /etc/profile.d/login-notify.sh
