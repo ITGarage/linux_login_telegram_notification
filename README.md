@@ -18,4 +18,4 @@ And send message to configured chat when user login via console or ssh with ip a
 >2020-08-04 20:48 - HostName user UserName login from 10.5.0.80 via ssh
 
 (You can set whitelist with ip address/subnet mask)
->                           example 192.168.0.1/24
+>example 192.168.0.1/24
